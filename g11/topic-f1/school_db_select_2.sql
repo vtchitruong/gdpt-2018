@@ -24,6 +24,3 @@ select last_name, first_name, birth_date
 from students
 where last_name = 'Tào' or last_name = 'Tư Mã'
 order by last_name DESC, first_name;
-
-
-select * from students
