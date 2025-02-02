@@ -55,6 +55,7 @@ def init_adjacency_list(input_data):
 
     return L
 
+
 # Chương trình chính
 if __name__ == '__main__':
     # Đọc dữ liệu input và đưa vào matrix
