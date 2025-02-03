@@ -58,7 +58,7 @@ def bfs(adj_list, start, finish):
         # Lấy ra đỉnh ở đầu hàng đợi, đặt là đỉnh current
         current = q.get()
 
-        # Nếu đỉnh u là đỉnh finish thì trả về khoảng cách
+        # Nếu đỉnh current là đỉnh finish thì trả về khoảng cách
         if current == finish:
             return distance[current]
 
@@ -76,7 +76,7 @@ def bfs(adj_list, start, finish):
                 distance[v] = distance[current] + 1
     
     # Nếu không tìm thấy đường đi từ start đến finish thì trả về -1
-    return -1    
+    return -1
     
 
 # Chương trình chính
