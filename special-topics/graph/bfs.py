@@ -11,13 +11,15 @@ data = '''
 3 4
 3 5
 4 5
+0
+5
 '''
 
 
-# Hàm tạo danh sách kề
-def init_adjacent_list(d):
+# Hàm khởi tạo danh sách kề
+def init_adjacency_list(input_data):
     # Chuyển đổi input thành danh sách các dòng riêng lẻ
-    lines = d.strip().split('\n')
+    lines = input_data.strip().split('\n')
 
     # Tách rời các số của dòng đầu tiên, lưu vào biến V là danh sách các đỉnh
     V = list(map(int, lines[0].split()))
@@ -25,8 +27,8 @@ def init_adjacent_list(d):
     # Khởi tạo danh sách kề L rỗng (dùng kiểu dictionary)
     L = {v: [] for v in V}
 
-    # Duyệt các dòng còn lại và nạp phần tử vào các danh sách đỉnh kề
-    for line in lines[1:]:
+    # Duyệt các dòng tiếp theo và nạp phần tử vào các danh sách đỉnh kề
+    for line in lines[1:len(lines) - 2]:
         u, v = map(int, line.split())
         L[u].append(v)
         L[v].append(u)
@@ -34,14 +36,8 @@ def init_adjacent_list(d):
     return L
 
 
-# Hàm in danh sách kề
-def print_adjacent_list(M):
-    for u, neighbors in M.items():
-        print(f'{u}: {neighbors}')
-
-
 # Hàm tính khoảng cách từ đỉnh start đến đỉnh finish bằng BFS
-def bfs(graph, start, finish):
+def bfs(adj_list, start, finish):
     # Khởi tạo hàng đợi q để áp dụng thuật toán BFS
     q = queue.Queue()
 
@@ -57,18 +53,18 @@ def bfs(graph, start, finish):
     # Đánh dấu đỉnh u đã ghé thăm
     visited.append(start)
 
-    # Duyệt BFS: Trong khi hàng đợi vẫn còn phần tử
+    # Trong khi hàng đợi vẫn còn phần tử
     while not q.empty():
-        # Lấy đỉnh u ra khỏi hàng đợi
-        u = q.get()
+        # Lấy ra đỉnh ở đầu hàng đợi, đặt là đỉnh current
+        current = q.get()
 
         # Nếu đỉnh u là đỉnh finish thì trả về khoảng cách
-        if u == finish:
-            return distance[u]
+        if current == finish:
+            return distance[current]
 
-        # Duyệt các đỉnh kề của u
-        for v in graph[u]:
-            # Nếu đỉnh v chưa ghé thăm thì thêm đỉnh u vào hàng đợi
+        # Duyệt các đỉnh kề của đỉnh current
+        for v in adj_list[current]:
+            # Nếu đỉnh v chưa ghé thăm thì thêm đỉnh v vào hàng đợi
             if v not in visited:
                 # Thêm đỉnh v vào hàng đợi
                 q.put(v)
@@ -77,7 +73,7 @@ def bfs(graph, start, finish):
                 visited.append(v)
 
                 # Cập nhật khoảng cách từ start đến v
-                distance[v] = distance[u] + 1
+                distance[v] = distance[current] + 1
     
     # Nếu không tìm thấy đường đi từ start đến finish thì trả về -1
     return -1    
@@ -85,20 +81,16 @@ def bfs(graph, start, finish):
 
 # Chương trình chính
 if __name__ == '__main__':
-    # Đọc dữ liệu input và đưa vào matrix
-    adj_list = init_adjacent_list(data)
+    # Đọc dữ liệu input và đưa vào biến al
+    al = init_adjacency_list(data)
 
-    # In danh sách kề
-    print_adjacent_list(adj_list)
-
-    # Đỉnh bắt đầu
-    s = 0
-    
-    # Đỉnh kết thúc
-    f = 5
+    # Lấy đỉnh bắt đầu và đỉnh kết thúc
+    lines = data.strip().split('\n')
+    s = int(lines[-2])
+    f = int(lines[-1])
 
     # Gọi hàm tính bfs() để khoảng cách từ đỉnh s đến đỉnh f
-    d = bfs(adj_list, s, f)
+    d = bfs(al, s, f)
 
     # In kết quả
-    print(f'Khoảng cách từ {s} đến {f} là {d}')
+    print(f'Khoảng cách từ đỉnh {s} đến đỉnh {f} là {d}')
