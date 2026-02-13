@@ -1,13 +1,3 @@
--- Check if the database exists
-DO $$
-BEGIN
-    IF EXISTS (SELECT 1 FROM pg_database WHERE datname = 'school_db') THEN
-        -- Drop the existing database
-        DROP DATABASE school_db;
-    END IF;
-END $$;
-
-
 -- Tạo cơ sở dữ liệu
 create database school_db;
 
@@ -21,12 +11,12 @@ create table students (
 	birth_place varchar(50)
 );
 
--- Thêm dữ liệu vào bảng students
+-- Thêm mẫu tin vô bảng students
 insert into students(student_id, last_name, first_name, gender, birth_date, birth_place) 
 values
 	('221001', 'Tào', 'Tháo', 0, '2007-01-15', 'Osaka, Japan'),
 	('231001', 'Lưu', 'Bị', 0, '2008-01-14', 'Istanbul, Turkey'),
-	('241021', 'Tôn', 'Quyền', 0, '2009-02-18', 'Dublin, Ireland'),
+	('241021', 'Tôn', 'Quyền', 0, '2009-02-18', 'Dublin, Ireland');
 
 -- Tạo bảng classrooms
 create table classrooms (
@@ -36,19 +26,19 @@ create table classrooms (
     head_teacher varchar(50)
 );
 
--- Thêm dữ liệu vào bảng classrooms
+-- Thêm mẫu tin vô bảng classrooms
 insert into classrooms 
 values ('12CTo', '12 chuyên Toán', '3.14', 'Prof. Ngô Bảo Châu'),
         ('11CTi', '11 chuyên Tin', 'Fibonacci', 'Mr School'),
         ('10CSi', '10 chuyên Sinh', 'Darwin', 'Dr Black Jack');
 
--- Thêm thuộc tính classroom_id vào bảng students
+-- Thêm thuộc tính classroom_id vô bảng students
 alter table students
 add column classroom_id char(5);
 
--- Thêm tham chiếu từ students đến classrooms
+-- Thêm ràng buộc khóa ngoại vô bảng students để tham chiếu đến bảng classrooms
 alter table students
-add constraint fk_classroom_id foreign key (classroom_id) 
+add constraint fk_classroom_id foreign key (classroom_id)
 references classrooms(classroom_id);
 
 -- Cập nhật dữ liệu lớp cho bảng students
@@ -72,7 +62,7 @@ create table subjects (
     is_mandatory boolean default true 
 );
 
--- Thêm dữ liệu vào bảng subjects
+-- Thêm mẫu tin vô bảng subjects
 insert into subjects
 values
     ('CS', 'Khoa học máy tính', 'Khoa học xử lý dữ liệu và thông tin bằng máy tính', true),
@@ -88,12 +78,18 @@ create table scores (
     regular_3 float,
     midterm float,
     final_test float,
+
+    -- Thiết lập khóa chính tổng hợp
     primary key (student_id, subject_id),
-    foreign key (student_id) references students(student_id), 
+
+    -- Thiết lập khóa ngoại thứ nhất để tham chiếu đến bảng students
+    foreign key (student_id) references students(student_id),
+
+    -- Thiết lập khóa ngoại thứ hai để tham chiếu đến bảng subjects
     foreign key (subject_id) references subjects(subject_id)
 );
 
--- Thêm dữ liệu vào bảng scores
+-- Thêm mẫu tin vô bảng scores
 insert into scores
 values
     ('221001', 'CS', 9.2, 9.4, 8.3, 9.1, 8.5),
@@ -106,7 +102,9 @@ values
     ('241021', 'PH', 8.2, 8, 7.2, 8.5, 7.8),
     ('241021', 'MH', 10, 9.5, 9.3, 7.2, 9);
 
--- Bổ sung dữ liệu
+-- Bổ sung thêm nhiều mẫu tin hơn vô bảng students và scores
+
+-- Thêm mẫu tin vô bảng students
 insert into students
 values
 	('221002', 'Tư Mã', 'Ý', 0, '2007-02-11', 'Seoul, South Korea', '12CTo'),
@@ -173,6 +171,7 @@ values
 	('240046', 'Hàn', 'Đương', 0, '2009-03-11', 'Santiago, Chile', '10CSi'),
 	('240047', 'Tôn Thượng', 'Hương', 1, '2009-08-19', 'Nairobi, Kenya', '10CSi');
 
+-- Thêm mẫu tin vô bảng scores
 insert into scores
 values
 	('221002', 'CS', 6.6, 9.2, 9.6, 8.2, 8.9),

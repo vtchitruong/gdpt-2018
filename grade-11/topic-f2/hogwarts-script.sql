@@ -91,7 +91,7 @@ create table characters (
     foreign key (spec_id) references species (spec_id)
 );
 
--- Thêm dữ liệu vào bảng môn học
+-- Thêm dữ liệu vô bảng môn học
 insert into subjects
 values ('ADM','Anti-Dementor','private'),
         ('ALC','Alchemy','regular'),
@@ -121,7 +121,7 @@ values ('ADM','Anti-Dementor','private'),
         ('TRA','Transfiguration','regular'),
         ('VDS','Verdimillious Duo Spell','private');
 
--- Thêm dữ liệu vào bảng thần chú
+-- Thêm dữ liệu vô bảng thần chú
 insert into spells
 values (1,'Summoning Charm','Accio','Charm','Summons an object','None'),
         (2,'Age Line','Unknown','Charm','Prevents people above or below a certain age from access to a target','Blue'),
@@ -425,7 +425,7 @@ values (1,'Summoning Charm','Accio','Charm','Summons an object','None'),
         (300,'White sparks','Unknown','Charm','Jet of white sparks','White'),
         (301,'Episkey','Episkey','Healing spell, Charm','Heals minor injuries','None');
 
--- Thêm dữ liệu vào bảng chủng loại
+-- Thêm dữ liệu vô bảng chủng loại
 insert into species
 values ('CE','Centaur',''),
         ('GH','Ghost','The disembodied spirit of a once-living wizard or witch. Only magical beings can become ghosts.'),
@@ -514,7 +514,7 @@ values (1,'Forgetfulness Potion','2 drops of Lethe River Water, 2 Valerian sprig
         (73,'Wolfsbane Potion','Wolfsbane','"Eases the symptoms of lycanthropy','prevents werewolves from losing their minds post-transformation."','Faint blue smoke when completed, Unpleasant taste'),
         (74,'Wound-cleaning potion','','Antiseptic','Purple liquid, Smokes on contact, Stings on contact','');
 
--- Thêm dữ liệu vào bảng nhà
+-- Thêm dữ liệu vô bảng nhà
 insert into Houses
 values ('B','Beauxbatons Academy of Magic','','','','','','','',''),
         ('D','Durmstrang Institute','','','','','','','',''),
@@ -525,7 +525,7 @@ values ('B','Beauxbatons Academy of Magic','','','','','','','',''),
         ('R','Ravenclaw','Filius Flitwick','Grey Lady','Rowena Ravenclaw','intelligence, wit, wisdom, creativity, originality, individuality, acceptance','eagle','blue','bronze','air'),
         ('S','Slytherin','Severus Snape','Bloody Baron','Salazar Slytherin','resourcefulness, cunning, ambition, determination, self-preservation, fraternity, cleverness','serpent','green','silver','water');
 
--- Thêm dữ liệu vào bảng loại điểm số
+-- Thêm dữ liệu vô bảng loại điểm số
 insert into Grades
 values ('A','Acceptable','pass'),
         ('D','Dreadful','fail'),
@@ -534,7 +534,7 @@ values ('A','Acceptable','pass'),
         ('P','Poor','fail'),
         ('T','Troll','fail');
 
--- Thêm dữ liệu vào bảng huyết thống
+-- Thêm dữ liệu vô bảng huyết thống
 insert into Bloods
     values ('HA','Half-blood','Parents or grandparents split between Muggles and wizards'),
     ('HB','Half-breed','Humans with at least one non-human parent'),
@@ -546,7 +546,7 @@ insert into Bloods
     ('SQ','Squib','From wizarding families but have no magic themselves'),
     ('UN','Unknown','No information');
 
--- Thêm dữ liệu vào bảng nhân vật
+-- Thêm dữ liệu vô bảng nhân vật
 insert into characters
 values ('B6129','Gabrielle','','Delacour','B',TRUE,'',' 31 July 1985 - 30 July 1986','','','','QV','','','','','HU','','Silvery-blonde','','','part Veela and therefore may possess some of their magical powers'),
         ('B7100','Madame Olympe Maxime','','','B',TRUE,'','','','','','HG','','','','','HG','Headmistress of Beauxbatons Academy of Magic','Brown','Black','','An ‘excellent dancer’, in the words of Dumbledore himself'),
