@@ -1,39 +1,28 @@
--- Tính số lượng mẫu tin trong bảng scores
-select count(student_id) as "Số lượng"
-from scores;
+-- Trích xuất họ, tên, lớp học và phòng học của các học sinh
+select last_name, first_name, classroom_name, room
+from students
+inner join classrooms on students.classroom_id = classrooms.classroom_id;
 
--- Tính số lượng điểm cuối kỳ từ 5 trở lên ở tất cả các môn
-select count(student_id) as "Số lượng"
+-- Dùng USING
+select last_name, first_name, classroom_name, room
+from students
+inner join classrooms using(classroom_id);
+
+-- Trích xuất họ, tên, mã lớp học, tên lớp học và phòng học của các học sinh
+select last_name, first_name, students.classroom_id, classroom_name, room
+from students
+inner join classrooms using(classroom_id);
+
+-- Trích xuất họ, tên, tên môn học và điểm thi cuối kỳ của các học sinh trong môn Khoa học máy tính
+select last_name, first_name, subject_name, final_test
 from scores
-where final_test >= 5;
+inner join subjects on scores.subject_id = subjects.subject_id
+inner join students on scores.student_id = students.student_id
+where subject_name = 'Khoa học máy tính';
 
--- Tính số lượng điểm cuối kỳ từ 5 trở lên theo từng môn
-select subject_id, count(student_id) as "Số lượng"
+-- Dùng USING
+select last_name, first_name, subject_name, final_test
 from scores
-where final_test >= 5
-group by subject_id;
-
--- Tính số lượng điểm cuối kỳ từ 5 trở lên theo từng môn, chỉ lấy môn nào có số lượng hơn 10
-select subject_id, count(student_id) as "Số lượng"
-from scores
-where final_test >= 5
-group by subject_id
-having count(student_id) > 10;
-
--- Tính giá trị trung bình của cột điểm cuối kỳ theo từng môn
--- Kết quả trả về phải có tên môn
-select subject_name, avg(final_test) as "Điểm trung bình"
-from scores inner join subjects on scores.subject_id = subjects.subject_id
-group by subject_name;
-
--- Tính giá trị trung bình của cột điểm cuối kỳ cho riêng môn Khoa học máy tính
-select subject_name, avg(final_test) as "Điểm trung bình"
-from scores inner join subjects on scores.subject_id = subjects.subject_id
-where subject_name = 'Khoa học máy tính'
-group by subject_name;
-
--- Lọc ra các môn mà giá trị trung bình của cột điểm cuối kỳ lớn hơn 7
-select subject_name, avg(final_test) as "Điểm trung bình"
-from scores inner join subjects on scores.subject_id = subjects.subject_id
-group by subject_name
-having avg(final_test) > 7;
+inner join subjects using(subject_id)
+inner join students using(student_id)
+where subject_name = 'Khoa học máy tính';

@@ -1,13 +1,6 @@
--- Lập danh sách học sinh, kèm theo lớp và phòng học
-select last_name, first_name, classroom_name, room
-from students inner join classrooms on students.classroom_id = classrooms.classroom_id;
-
--- Lập danh sách học sinh, kèm theo mã lớp, tên lớp và phòng học
-select last_name, first_name, students.classroom_id, classroom_name, room
-from students inner join classrooms on students.classroom_id = classrooms.classroom_id;
-
--- In ra bảng điểm môn Khoa học máy tính của tất cả học sinh
-select last_name, first_name, subject_name, final_test
-from scores inner join subjects on scores.subject_id = subjects.subject_id
-            inner join students on scores.student_id = students.student_id
-where subject_name = 'Khoa học máy tính';
+-- Trích xuất họ, tên và ngày sinh của các học sinh mang họ Tào và họ Tư Mã
+-- Sắp xếp họ theo thứ tự Z-A (giảm dần) và tên theo thứ tự A-Z (tăng dần)
+select last_name, first_name, birth_date
+from students
+where last_name = 'Tào' or last_name = 'Tư Mã'
+order by last_name DESC, first_name;
