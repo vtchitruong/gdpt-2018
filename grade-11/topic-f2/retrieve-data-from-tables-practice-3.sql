@@ -61,6 +61,16 @@ WHERE
 ORDER BY last_name,
 	first_name desc;
 
-
-select * from characters
-where first_name = 'Hermione'
+-- Truy vấn 7
+SELECT
+    first_name,
+    last_name,
+    wood,
+    core
+FROM
+    characters
+INNER JOIN 
+    wands USING (character_id)
+WHERE 
+	first_name = 'Tom'
+	AND last_name = 'Riddle';
