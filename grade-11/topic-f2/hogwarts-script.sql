@@ -1,4 +1,4 @@
--- create database hogwarts;
+create database hogwarts;
 
 -- Bảng môn học
 create table subjects (
