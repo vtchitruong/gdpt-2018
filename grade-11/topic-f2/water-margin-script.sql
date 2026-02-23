@@ -11,13 +11,13 @@ CREATE TABLE figures (
     destiny_title VARCHAR(40),
     sao_chieu_menh VARCHAR(40),
     rank VARCHAR(10),
-    position_en VARCHAR(60),
+    position_role VARCHAR(60),
     chuc_vu_vai_tro VARCHAR(60),
     is_historical_status VARCHAR(15),
     merits_activities TEXT
 );
 
-INSERT INTO figures (id, name, ten, nickname, biet_danh, biet_danh_giai_nghia, type_of_destiny_star, destiny_title, sao_chieu_menh, rank, position_en, chuc_vu_vai_tro, is_historical_status, merits_activities) VALUES
+INSERT INTO figures (id, name, ten, nickname, biet_danh, biet_danh_giai_nghia, type_of_destiny_star, destiny_title, sao_chieu_menh, rank, position_role, chuc_vu_vai_tro, is_historical_status, merits_activities) VALUES
 (0, 'Chao Gai', 'Tiều Cái', 'Pagoda-Bearing Heavenly King', 'Thác Tháp Thiên Vương', 'Vua trời chống tháp', NULL, NULL, NULL, NULL, 'Original Founder & Leader', 'Thủ lĩnh đời đầu', 'Fiction', 'Lãnh đạo vụ cướp sinh thần cang; người đặt nền móng xây dựng Lương Sơn Bạc; hy sinh trong trận đánh Tăng Đầu Thị bởi mũi tên độc của Sử Văn Cung.'),
 (1, 'Song Jiang', 'Tống Giang', 'Timely Rain', 'Cập Thời Vũ', 'Mưa đúng lúc', 'heavenly spirit', 'Heavenly Leading Spirit', 'Thiên Khôi Tinh', '1 of 36', 'Supreme Leader', 'Tổng đầu lĩnh', 'Debated', 'Lãnh đạo tối cao của Lương Sơn Bạc; đề xướng tư tưởng Thế thiên hành đạo; nổi tiếng với lòng nghĩa hiệp; thu phục nhiều hào kiệt.'),
 (2, 'Lu Junyi', 'Lư Tuấn Nghĩa', 'Jade Qilin', 'Ngọc Kỳ Lân', 'Con kỳ lân bằng ngọc', 'heavenly spirit', 'Heavenly Virtue Spirit', 'Thiên Cương Tinh', '2 of 36', 'Second-in-Command', 'Phó thủ lĩnh', 'Fiction', 'Võ nghệ cao cường bậc nhất thiên hạ; sử dụng gậy và thương điêu luyện; bị lừa lên núi sau khi trải qua nhiều hoạn nạn.'),
@@ -56,7 +56,7 @@ INSERT INTO figures (id, name, ten, nickname, biet_danh, biet_danh_giai_nghia, t
 (35, 'Xie Bao', 'Giải Bảo', 'Double-tailed Scorpion', 'Song Vĩ Yết', 'Bọ cạp hai đuôi', 'heavenly spirit', 'Heavenly Weeping Spirit', 'Thiên Khốc Tinh', '35 of 36', 'Infantry Commander', 'Bộ quân đầu lĩnh', 'Fiction', 'Em trai Giải Trân; phối hợp nhịp nhàng với anh trai trong các nhiệm vụ trinh sát núi rừng.'),
 (36, 'Yan Qing', 'Yến Thanh', 'Prodigy', 'Lãng Tử', 'Chàng trai phóng khoáng', 'heavenly spirit', 'Heavenly Able Spirit', 'Thiên Xảo Tinh', '36 of 36', 'Specialist/Scout', 'Bộ quân đầu lĩnh trinh sát', 'Fiction', 'Đa tài; giỏi võ thuật; chơi nhạc cụ hay; giúp Lương Sơn kết nối với Lý Sư Sư để xin chiêu an.');
 
-INSERT INTO figures (id, name, ten, nickname, biet_danh, biet_danh_giai_nghia, type_of_destiny_star, destiny_title, sao_chieu_menh, rank, position_en, chuc_vu_vai_tro, is_historical_status, merits_activities) VALUES
+INSERT INTO figures (id, name, ten, nickname, biet_danh, biet_danh_giai_nghia, type_of_destiny_star, destiny_title, sao_chieu_menh, rank, position_role, chuc_vu_vai_tro, is_historical_status, merits_activities) VALUES
 (37, 'Zhu Wu', 'Chu Vũ', 'Resourceful Strategist', 'Thần Cơ Quân Sư', 'Quân sư mưu lược thần diệu', 'earthly fiend', 'Earthly Variable Fiend', 'Địa Khôi Tinh', '1 of 72', 'Strategist', 'Quân sư', 'Fiction', 'Thủ lĩnh núi Thiếu Hoa; am hiểu sâu sắc về trận pháp và binh pháp; trợ thủ đắc lực cho Ngô Dụng.'),
 (38, 'Huang Xin', 'Hoàng Tín', 'Guardian of Three Mountains', 'Trấn Tam Sơn', 'Trấn giữ ba ngọn núi', 'earthly fiend', 'Earthly Correct Fiend', 'Địa Sát Tinh', '2 of 72', 'Cavalry General', 'Mã quân tiểu biểu kỵ', 'Fiction', 'Từng là binh mã đô giám Thanh Châu; võ nghệ cao cường; cai quản vùng núi Thanh Châu.'),
 (39, 'Sun Li', 'Tôn Lập', 'Sick Yuchi', 'Bệnh Uất Trì', 'Uất Trì Cung ốm', 'earthly fiend', 'Earthly Brave Fiend', 'Địa Dũng Tinh', '3 of 72', 'Cavalry General', 'Mã quân tiểu biểu kỵ', 'Fiction', 'Võ nghệ xuất chúng; lập công lớn trong trận Chúc Gia Trang bằng cách làm nội gián; sử dụng roi sắt.'),
