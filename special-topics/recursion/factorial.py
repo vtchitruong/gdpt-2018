@@ -8,7 +8,7 @@ def factorial(n):
 
 
 if __name__ == '__main__':
-    number = int(input('Nhập số nguyên dương: '))
+    number = int(input('Nhập số nguyên không âm: '))
 
     result = factorial(number)
     print(f'{number}! = {result}')
