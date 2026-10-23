@@ -41,11 +41,11 @@ def classify(q):
 
 # Chương trình chính
 if __name__ == '__main__':
-    # Gọi hàm init_original_queue để khởi tạo hàng đợi điểm số gốc
+    # Gọi hàm init_original_queue để khởi tạo hàng đợi ban đầu
     original_queue = init_original_queue(data)
 
-    # In hàng đợi điểm số gốc
-    print('Hàng đợi điểm số gốc:', *original_queue.queue)
+    # In hàng đợi ban đầu
+    print('Hàng đợi điểm số ban đầu:', *original_queue.queue)
 
     # Gọi hàm classify để phân loại
     pass_queue, fail_queue = classify(original_queue)
@@ -54,5 +54,5 @@ if __name__ == '__main__':
     print('Hàng đợi xếp loại đạt:', *pass_queue.queue)
     print('Hàng đợi xếp loại chưa đạt:', *fail_queue.queue)
 
-    # In hàng đợi điểm số gốc sau khi phân loại
-    print('Hàng đợi điểm số gốc:', *original_queue.queue)
+    # In hàng đợi ban đầu sau khi phân loại
+    print('Hàng đợi điểm số ban đầu:', *original_queue.queue)
