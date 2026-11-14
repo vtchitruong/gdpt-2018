@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # Số lượng ký tự của chuỗi nhị phân
     n = int(input('Nhập số ký tự: '))
 
-    # Khởi tạo mảng kết quả binary_strings
+    # Khởi tạo danh sách kết quả binary_strings
     solutions = []
 
     # Khởi tạo phương án rỗng
@@ -34,6 +34,6 @@ if __name__ == '__main__':
     # Gọi hàm generate_binary_string()
     generate_binary_string(option)
 
-    # In ra các chuỗi nhị phân trong mảng kết quả
+    # In ra các chuỗi nhị phân trong danh sách kết quả
     for s in solutions:
         print(s)
